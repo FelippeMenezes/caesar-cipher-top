@@ -1,5 +1,5 @@
 def caesar_cipher(string, number)
-  string.chars.map do |char|
+  transformed = string.chars.map do |char|
 
     if char.match?(/[a-z]/)
       base = 'a'.ord
@@ -27,5 +27,16 @@ def caesar_cipher(string, number)
       char
     end
 
-  end.join
+  end
+
+  result = transformed.join
+  p result
 end
+
+p "What phrase do you want to encode?"
+user_string = gets.chomp
+
+p "What is the secret of your code?"
+secret_number = gets.chomp.to_i
+
+caesar_cipher(user_string, secret_number)
