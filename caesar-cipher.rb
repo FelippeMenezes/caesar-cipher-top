@@ -36,7 +36,7 @@ end
 p "What phrase do you want to encode?"
 user_string = gets.chomp
 
-p "What is the secret of your code?"
+p "What is the secret number of your code?"
 secret_number = gets.chomp.to_i
 
 caesar_cipher(user_string, secret_number)
