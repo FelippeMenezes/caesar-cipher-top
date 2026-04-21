@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def caesar_cipher(string, number)
   transformed = string.chars.map do |char|
     if char.match?(/[a-z]/)
