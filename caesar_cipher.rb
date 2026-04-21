@@ -1,32 +1,31 @@
 # frozen_string_literal: true
 
+def replace_downcase_string(number, char)
+  base = 'a'.ord
+  position = char.ord - base
+  new_position = position + number
+  new_position -= 26 while new_position >= 26
+  (new_position + base).chr
+end
+
+def replace_upcase_string(number, char)
+  base = 'A'.ord
+  position = char.ord - base
+  new_position = position + number
+  new_position -= 26 while new_position >= 26
+  (new_position + base).chr
+end
+
 def caesar_cipher(string, number)
-  transformed = string.chars.map do |char|
+  result = string.gsub(/[a-z]/i) do |char|
     if char.match?(/[a-z]/)
-      base = 'a'.ord
-      position = char.ord - base
-      new_position = position + number
-
-      new_position -= 26 while new_position >= 26
-
-      (new_position + base).chr
-
-    elsif char.match?(/[A-Z]/)
-      base = 'A'.ord
-      position = char.ord - base
-      new_position = position + number
-
-      new_position -= 26 while new_position >= 26
-
-      (new_position + base).chr
-
+      replace_downcase_string(number, char)
     else
-      char
+      replace_upcase_string(number, char)
     end
   end
-
-  result = transformed.join
   p result
+  result
 end
 
 p 'What phrase do you want to encode?'
