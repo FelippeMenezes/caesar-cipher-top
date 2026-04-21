@@ -24,14 +24,14 @@ def caesar_cipher(string, number)
       replace_upcase_string(number, char)
     end
   end
-  p result
+  puts result
   result
 end
 
-p 'What phrase do you want to encode?'
+puts 'What phrase do you want to encode?'
 user_string = gets.chomp
 
-p 'What is the secret number of your code?'
+puts 'What is the secret number of your code?'
 secret_number = gets.chomp.to_i
 
 caesar_cipher(user_string, secret_number)
